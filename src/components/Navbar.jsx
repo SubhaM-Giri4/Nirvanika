@@ -16,7 +16,11 @@ const Navbar = () => {
           <h1>Nirvanika</h1>
         </Link>
       </div>
+
       <div className="navbar-links">
+        <Link className="navbar-linktest" to="/test">
+          <div>Begin Self Check</div>
+        </Link>
         <Link className="navbar-link" to="/blog">
           <div>Blog</div>
         </Link>
@@ -24,9 +28,7 @@ const Navbar = () => {
         <Link className="navbar-link" to="/gethelp">
           <div>Get Help</div>
         </Link>
-        <Link className="navbar-link" to="/test">
-          <div> Take a Test</div>
-        </Link>
+
         {user && (
           <>
             <Link onClick={handleClick} className="navbar-link">

@@ -9,7 +9,7 @@ export const myPosts = [
     date: "November 15, 2023",
     category: "Anxiety",
   },
-  // More posts
+  // More post
   {
     id: 2,
     title: "Depression makes me feel like a failure",

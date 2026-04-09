@@ -10,7 +10,7 @@ const Footer = () => (
           <ul className="nav flex-column">
             <li className="nav-item mb-2">
               <h6 className="p-0 text-body-secondary">
-                sukoon123@gmail.com
+                Nirvanika@gmail.com
               </h6>
             </li>
             <li className="nav-item mb-2">

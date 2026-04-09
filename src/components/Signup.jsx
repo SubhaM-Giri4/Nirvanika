@@ -33,7 +33,7 @@ const Signup = () => {
                 onChange={(e) => setName(e.target.value)}
                 value={name}
                 type="text"
-                placeholder="Username"
+                placeholder="    Username"
                 required
                 minLength={3}
             />
@@ -44,7 +44,7 @@ const Signup = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 type="email"
-                placeholder="Email"
+                placeholder="    Email"
                 required
             />
           </div>
@@ -54,7 +54,7 @@ const Signup = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
                 type={showPassword ? "text" : "password"}
-                placeholder="Password"
+                placeholder="    Password"
                 required
                 minLength={6}
             />

@@ -1,24 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; // Assuming you're using React Router
-import { myPosts as staticPosts } from './static_blog_data'; // Import posts from your static data file
-import Post from './post'; // Make sure to import your Post component
+import { Link } from 'react-router-dom';
+import { myPosts as staticPosts } from './static_blog_data';
+import Post from './post';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    // Fetch posts or set posts from your static data
-    // You can replace this with your actual API call or static data fetching logic
-    // For example:
-    // const fetchData = async () => {
-    //   const response = await getAllPosts();
-    //   if (response.isSuccess) {
-    //     setPosts(response.data);
-    //   }
-    // };
-    // fetchData();
 
-    // For demo purposes, setting posts from static data
     setPosts(staticPosts);
   }, []);
 
