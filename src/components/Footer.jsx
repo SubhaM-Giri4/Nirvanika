@@ -54,7 +54,7 @@ const Footer = () => (
         </div>
 
         <div className="offset-md-1 col-md-2 mb-1" style={{ margin: "0.5rem" }}>
-          <h2 className="ms-1">Sukoon</h2>
+          <h2 className="ms-1">Nirvanika</h2>
           <ul className="list-unstyled d-flex">
             <li>
               <a href="https://www.instagram.com/">

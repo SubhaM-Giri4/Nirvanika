@@ -11,9 +11,11 @@ import Signup from "./components/Signup";
 import Blog from "./components/post/Blog.jsx";
 import DetailedPost from "./components/post/detailedpost.jsx";
 import CreatePost from "./components/post/createpost.jsx";
+import E from "./components/E";
 
 import { Toaster } from "react-hot-toast";
 import NotFoundPage from "./components/404page";
+
 function App() {
   return (
     <>
@@ -31,6 +33,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/post/:postId" element={<DetailedPost />} />
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="/examine" element={<E />} />
         </Routes>
         <Footer />
         <Toaster />

@@ -1,35 +1,32 @@
-import { useState } from "react";
-import { useAuthContext } from "./useAuthContext";
-
-import { API_URL } from "../components/constants/data";
+import { useState } from 'react';
+import { useAuthContext } from './useAuthContext';
 
 export const useLogin = () => {
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
-  const { dispatch } = useAuthContext();
+  const [e, se] = useState(null);
+  const [i, si] = useState(false);
+  const { dispatch: d } = useAuthContext();
 
-  const login = async (email, password) => {
-    setIsLoading(true);
-    setError(null);
-    const response = await fetch(`${API_URL}/api/user/login`, {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+  const login = async (em, pw) => {
+    si(true);
+    se(null);
+
+    const r = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ em, pw })
     });
-    const data = await response.json();
-    if (!response.ok) {
-      setError(data.error || "Something went wrong!");
-      setIsLoading(false);
+    const j = await r.json();
+
+    if (!r.ok) {
+      si(false);
+      se(j.m || j.er);
     }
-    if (response.ok) {
-      localStorage.setItem("user", JSON.stringify(data));
-
-      dispatch({ type: "LOGIN", payload: data });
-
-      setIsLoading(false);
+    if (r.ok) {
+      localStorage.setItem('u', JSON.stringify(j));
+      d({ type: 'LOGIN', payload: j });
+      si(false);
     }
   };
-  return { login, error, isLoading };
+
+  return { login, isLoading: i, error: e };
 };

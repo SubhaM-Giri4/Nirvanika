@@ -21,6 +21,9 @@ const Navbar = () => {
         <Link className="navbar-linktest" to="/test">
           <div>Begin Self Check</div>
         </Link>
+        <Link className="navbar-link" to="/examine">
+          <div>Assessment</div>
+        </Link>
         <Link className="navbar-link" to="/blog">
           <div>Blog</div>
         </Link>

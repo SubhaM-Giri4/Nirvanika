@@ -1,23 +1,42 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useSignup } from "../hooks/useSignup";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
 
-const Signup = () => {
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const { signup, error, isLoading } = useSignup();
+const S = () => {
+  const { user: u } = useContext(AuthContext);
+  const n = useNavigate();
+  const [nm, sn] = useState("");
+  const [em, se] = useState("");
+  const [pw, sp] = useState("");
+  const [sw, ssw] = useState(false);
+  const [ve, sve] = useState("");
+  const { signup: su, error: er, isLoading: il } = useSignup();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (isLoading) return;
-    await signup(name, email, password);
-    if (user) navigate("/");
+  useEffect(() => {
+    if (u) {
+      n("/");
+    }
+  }, [u, n]);
+
+  const hs = async (ev) => {
+    ev.preventDefault();
+    sve("");
+
+    const rx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!rx.test(em)) {
+      sve("Invalid email format.");
+      return;
+    }
+
+    if (pw.length < 6) {
+      sve("Password must be at least 6 characters long.");
+      return;
+    }
+
+    if (il) return;
+    await su(nm, em, pw);
   };
 
   return (
@@ -27,11 +46,11 @@ const Signup = () => {
           <div className="underline"></div>
         </div>
 
-        <form onSubmit={handleSubmit} className="inputs">
+        <form onSubmit={hs} className="inputs">
           <div className="input">
             <input
-                onChange={(e) => setName(e.target.value)}
-                value={name}
+                onChange={(ev) => sn(ev.target.value)}
+                value={nm}
                 type="text"
                 placeholder="    Username"
                 required
@@ -41,8 +60,8 @@ const Signup = () => {
 
           <div className="input">
             <input
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
+                onChange={(ev) => se(ev.target.value)}
+                value={em}
                 type="email"
                 placeholder="    Email"
                 required
@@ -51,31 +70,32 @@ const Signup = () => {
 
           <div className="input">
             <input
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                type={showPassword ? "text" : "password"}
+                onChange={(ev) => sp(ev.target.value)}
+                value={pw}
+                type={sw ? "text" : "password"}
                 placeholder="    Password"
                 required
                 minLength={6}
             />
             <button
                 type="button"
-                onClick={() => setShowPassword(!showPassword)}
+                onClick={() => ssw(!sw)}
                 className="show-password"
-                aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-label={sw ? "Hide password" : "Show password"}
             >
-              {showPassword ? "🙈" : "👁️"}
+              {sw ? "🙈" : "👁️"}
             </button>
           </div>
 
-          <button type="submit" className="submit" disabled={isLoading}>
-            {isLoading ? "Creating account..." : "Sign Up"}
+          <button type="submit" className="submit" disabled={il}>
+            {il ? "Creating account..." : "Sign Up"}
           </button>
         </form>
 
-        {error && <div className="error">{error}</div>}
+        {ve && <div className="error">{ve}</div>}
+        {er && !ve && <div className="error">{er}</div>}
       </div>
   );
 };
 
-export default Signup;
+export default S;

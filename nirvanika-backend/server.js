@@ -1,20 +1,22 @@
-const exp = require('express');
-const crs = require('cors');
-const mg = require('mongoose');
+const e = require('express');
+const c = require('cors');
+const m = require('mongoose');
 require('dotenv').config();
 
-const a = exp();
+const a = e();
 
-a.use(crs());
-a.use(exp.json());
+a.use(c());
+a.use(e.json());
 
-mg.connect(process.env.db)
+m.connect(process.env.db)
     .then(() => console.log("db ok"))
-    .catch((e) => console.log(e));
+    .catch((err) => console.log(err));
 
-a.get('/', (req, res) => {
-    res.send("ok");
-});
+const ar = require('./routes/auth');
+const sr = require('./routes/score');
+
+a.use('/api/auth', ar);
+a.use('/api/score', sr);
 
 const p = process.env.port || 5000;
 a.listen(p, () => {

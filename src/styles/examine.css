@@ -1,0 +1,145 @@
+.ec {
+    max-width: 600px;
+    margin: 15vh auto 5vh;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.eh {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.eh h2 {
+    color: #2c3e50;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.eu {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.ef {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.ei {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ei label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #444;
+    margin-left: 4px;
+}
+
+.ei input, .ei textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #333;
+    background: #f8fafc;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+
+.ei input:hover, .ei textarea:hover {
+    border-color: #cbd5e1;
+    background: #ffffff;
+}
+
+.ei input:focus, .ei textarea:focus {
+    border-color: #3498db;
+    background: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+}
+
+.ei textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.eb {
+    padding: 16px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.eb:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.eb:active {
+    transform: translateY(0);
+}
+
+.er {
+    margin-top: 40px;
+    padding: 25px;
+    background: #f0f7ff;
+    border-left: 6px solid #3498db;
+    border-radius: 0 12px 12px 0;
+    animation: fIn 0.5s ease-out;
+}
+
+.er h4 {
+    margin: 0 0 12px 0;
+    color: #1a5276;
+    font-size: 20px;
+}
+
+.er p {
+    margin: 0 0 20px 0;
+    color: #2c3e50;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.er blockquote {
+    margin: 0;
+    font-style: italic;
+    font-size: 15px;
+    color: #546e7a;
+    border-top: 1px solid #d4e6f1;
+    padding-top: 18px;
+    position: relative;
+}
+
+@keyframes fIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
